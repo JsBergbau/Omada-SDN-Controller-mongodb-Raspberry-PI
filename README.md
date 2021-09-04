@@ -72,7 +72,7 @@ If anything went wrong, you can delete the user via `sudo userdel omadacontrolle
 
 ## Correct permissions
 
-Now to make everything work, permissions have to be set. Go to `/opt/tplink` and execute `sudo chown -R eapcontroller *`
+Now to make everything work, permissions have to be set. Go to `/opt/tplink` and execute `sudo chown -R omadacontroller *`
 
 ## Start Omada Controller
 
