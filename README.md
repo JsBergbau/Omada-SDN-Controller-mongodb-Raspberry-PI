@@ -3,6 +3,8 @@
 There are a lot of tutorials and instructions of how to run Omada Controller on Raspberry PI. Official realeases of TP-Link are only for x86/x64 Linux.
 Since Omada Controller uses Java it is quite easy to run it also on ARM / Raspberry PI.
 
+Update 04.09.2021: At the time of writing v4.3.5 was the latest version of Omada Controller. However this tutorial works exactly the same way for latest controller v4.4.4. To update to latest controller version see section [Updating Omadacontroller to latest version](#updating-omadacontroller-to-latest-version).
+
 Latest Omada SDN Controller v4.3.5 requires at least MongoDB 2.6. However in Debian repositories latest version is 2.4. MongoDB changed their license in Ocotober 2018, see https://www.mongodb.com/support-policy
 . In June 2018 MongoDB 4.0 was released so it is a pity that Debian repositories only contain version 2.4. On the other hand version 3.2 is the last version that runs on 32 Bit, so version 3.2 should be included included
 in Debian repositories. Nevertheless it is possible to run Omada SDN Controller on Raspberry PI with 32 Bit OS.
@@ -89,3 +91,10 @@ to stop it run
 `firejail --join=omada /opt/tplink/Omada_SDN_Controller_v4.3.5_linux_x64/bin/control.sh stop`
 
 Note: Using Firejail with Wifi is currently not possible, see https://github.com/netblue30/firejail/issues/3000
+
+## Updating Omadacontroller to latest version
+
+Do the same steps like for installing, especially editing control.sh, copying `mongod` and making both executable. Then copy everything from the old omadacontroller dir like /opt/tplink/Omada_SDN_Controller_v4.3.5_linux_x64/data/db/ to /opt/tplink/Omada_SDN_Controller_v4.4.4_linux_x64/data/db/
+Check that the database files are directly copied to db directory and not another subdirectory db.
+
+Then as last step do the [chown step](#correct-permissions) and run controller. Now the latest version is running.
